@@ -105,30 +105,5 @@ class _MyAppState extends State<MyApp> {
     );
   }
 
-  Future<bool> _goBack(BuildContext context) async {
-    if (await webViewController.canGoBack()) {
-      controller.goBack();
-      return Future.value(false);
-    } else {
-      showDialog(
-          context: context,
-          builder: (context) => AlertDialog(
-            title: Text('Do you want to exit'),
-            actions: <Widget>[
-              FlatButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-                child: Text('No'),
-              ),
-              FlatButton(
-                onPressed: () {
-                  SystemNavigator.pop();
-                },
-                child: Text('Yes'),
-              ),
-            ],
-          ));
-      return Future.value(true);
-    }
+
 }
